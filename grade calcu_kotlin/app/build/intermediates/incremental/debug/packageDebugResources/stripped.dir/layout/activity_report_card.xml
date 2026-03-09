@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F0F4FF">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:background="#1565C0" app:titleTextColor="#FFFFFF"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="20dp">
+
+            <!-- Header card -->
+            <androidx.cardview.widget.CardView android:id="@+id/headerCard"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="20dp" app:cardElevation="6dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:gravity="center" android:padding="24dp">
+                    <TextView android:id="@+id/tvEmoji"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textSize="60sp"/>
+                    <TextView android:id="@+id/tvName"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold"
+                        android:layout_marginTop="10dp"/>
+                    <TextView android:id="@+id/tvRemark"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textColor="#DDFFFFFF" android:textSize="16sp"/>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardBackgroundColor="#33FFFFFF" app:cardCornerRadius="30dp">
+                        <TextView android:id="@+id/tvAverage"
+                            android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:textColor="#FFFFFF" android:textSize="18sp" android:textStyle="bold"
+                            android:paddingStart="24dp" android:paddingEnd="24dp"
+                            android:paddingTop="10dp" android:paddingBottom="10dp"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Summary -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp" app:cardBackgroundColor="#E8EAF6">
+                <TextView android:id="@+id/tvSummary"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:padding="14dp" android:textSize="12sp" android:textColor="#1565C0"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Subjects -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📚 Subject Scores" android:textSize="16sp"
+                android:textStyle="bold" android:textColor="#1565C0" android:layout_marginBottom="10dp"/>
+            <LinearLayout android:id="@+id/subjectContainer"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_marginBottom="16dp"/>
+
+            <!-- Stats grid -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📊 Summary" android:textSize="16sp"
+                android:textStyle="bold" android:textColor="#1565C0" android:layout_marginBottom="10dp"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="6dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginEnd="6dp" app:cardCornerRadius="12dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="📚" android:textSize="20sp" android:layout_marginEnd="8dp"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:id="@+id/tvTotalSubjects" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textSize="16sp"
+                                android:textStyle="bold" android:textColor="#1565C0"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Subjects" android:textSize="11sp" android:textColor="#888"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginStart="6dp" app:cardCornerRadius="12dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🔢" android:textSize="20sp" android:layout_marginEnd="8dp"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:id="@+id/tvTotalMarks" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textSize="16sp"
+                                android:textStyle="bold" android:textColor="#1565C0"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Total Marks" android:textSize="11sp" android:textColor="#888"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="16dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginEnd="6dp" app:cardCornerRadius="12dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="⭐" android:textSize="20sp" android:layout_marginEnd="8dp"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:id="@+id/tvHighest" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textSize="16sp"
+                                android:textStyle="bold" android:textColor="#1565C0"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Highest" android:textSize="11sp" android:textColor="#888"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp"
+                    android:layout_height="wrap_content" android:layout_weight="1"
+                    android:layout_marginStart="6dp" app:cardCornerRadius="12dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="horizontal" android:padding="12dp" android:gravity="center_vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                            android:text="🏅" android:textSize="20sp" android:layout_marginEnd="8dp"/>
+                        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                            <TextView android:id="@+id/tvBestSubject" android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textSize="16sp"
+                                android:textStyle="bold" android:textColor="#1565C0"/>
+                            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                                android:text="Best Subject" android:textSize="11sp" android:textColor="#888"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Grade Scale -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📋 Grade Scale" android:textSize="16sp"
+                android:textStyle="bold" android:textColor="#1565C0" android:layout_marginBottom="10dp"/>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:cardCornerRadius="16dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <include android:id="@+id/rowA" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <include android:id="@+id/rowB" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <include android:id="@+id/rowC" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <include android:id="@+id/rowD" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <include android:id="@+id/rowE" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                    <include android:id="@+id/rowF" layout="@layout/item_grade_row"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

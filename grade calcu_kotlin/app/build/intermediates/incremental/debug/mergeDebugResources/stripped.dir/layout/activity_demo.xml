@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#F0F4FF">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar android:id="@+id/toolbar"
+            android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
+            android:background="#1565C0" app:titleTextColor="#FFFFFF"/>
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ Function 1 — validateScore()" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#1B5E20" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvValidate" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ Function 2 — formatSummary()" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#0D47A1" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvFormat" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ Higher-Order Function + Lambda" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#4A148C" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvHof" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ Collection Filter — filter()" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#BF360C" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvFilter" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ map() — Transform List" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#004D40" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvMap" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ fold() — Class Average" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#1A237E" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvFold" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ forEach() — Grade Distribution" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#37474F" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvForEach" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="✅ OOP Concepts Checklist" android:textStyle="bold" android:textColor="#FFFFFF" android:background="#880E4F" android:padding="12dp" android:layout_marginBottom="2dp"/>
+            <TextView android:id="@+id/tvOop" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#FFFFFF" android:padding="12dp" android:fontFamily="monospace" android:textSize="12sp" android:layout_marginBottom="12dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
