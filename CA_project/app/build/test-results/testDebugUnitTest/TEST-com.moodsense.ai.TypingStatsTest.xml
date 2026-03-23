@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.moodsense.ai.TypingStatsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2026-02-27T16:47:06" hostname="DESKTOP-S2UB162" time="0.031">
+  <properties/>
+  <testcase name="total characters is non-negative" classname="com.moodsense.ai.TypingStatsTest" time="0.002"/>
+  <testcase name="very low WPM with long pauses indicates hesitation" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <testcase name="typing stats stores backspace frequency correctly" classname="com.moodsense.ai.TypingStatsTest" time="0.002"/>
+  <testcase name="low backspace rate indicates calm typing" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <testcase name="normal WPM range is between 40 and 80" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <testcase name="typing stats stores WPM correctly" classname="com.moodsense.ai.TypingStatsTest" time="0.0"/>
+  <testcase name="typing stats stores session duration correctly" classname="com.moodsense.ai.TypingStatsTest" time="0.0"/>
+  <testcase name="typing stats stores pause duration correctly" classname="com.moodsense.ai.TypingStatsTest" time="0.004"/>
+  <testcase name="typing stats stores total characters correctly" classname="com.moodsense.ai.TypingStatsTest" time="0.002"/>
+  <testcase name="high backspace rate indicates stress" classname="com.moodsense.ai.TypingStatsTest" time="0.002"/>
+  <testcase name="very high WPM indicates rushed or stressed typing" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <testcase name="stress score is higher with high backspace and low WPM" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <testcase name="session duration is positive" classname="com.moodsense.ai.TypingStatsTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

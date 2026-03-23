@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.moodsense.ai.MusicTrackTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2026-02-27T16:47:06" hostname="DESKTOP-S2UB162" time="0.036">
+  <properties/>
+  <testcase name="track preview url is valid when present" classname="com.moodsense.ai.MusicTrackTest" time="0.003"/>
+  <testcase name="neutral mood search term contains focus keywords" classname="com.moodsense.ai.MusicTrackTest" time="0.002"/>
+  <testcase name="track album art url can be null" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="track stores name correctly" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="album art url can be upgraded from 100x100 to 300x300" classname="com.moodsense.ai.MusicTrackTest" time="0.007"/>
+  <testcase name="track stores id correctly" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="two tracks with same id are equal" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="two tracks with different ids are not equal" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="track preview url can be null" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="track stores album correctly" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="sad mood search term contains emotional keywords" classname="com.moodsense.ai.MusicTrackTest" time="0.0"/>
+  <testcase name="track url is not blank for valid track" classname="com.moodsense.ai.MusicTrackTest" time="0.002"/>
+  <testcase name="track stores artist correctly" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="track stores trackUrl correctly" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <testcase name="happy mood search term contains upbeat keywords" classname="com.moodsense.ai.MusicTrackTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

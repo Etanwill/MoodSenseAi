@@ -1,0 +1,285 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.moodsense.ai"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Permissions -->
+12    <uses-permission android:name="android.permission.CAMERA" />
+12-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:6:5-65
+12-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:6:22-62
+13    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+13-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:7:5-71
+13-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:7:22-68
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:8:5-67
+14-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:8:22-64
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:9:5-79
+15-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:9:22-76
+16
+17    <!-- Camera feature requirement -->
+18    <uses-feature
+18-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:12:5-85
+19        android:name="android.hardware.camera"
+19-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:12:19-57
+20        android:required="false" />
+20-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:12:58-82
+21    <uses-feature
+21-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:13:5-89
+22        android:name="android.hardware.microphone"
+22-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:13:19-61
+23        android:required="false" />
+23-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:13:62-86
+24
+25    <permission
+25-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+26        android:name="com.moodsense.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+26-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+27        android:protectionLevel="signature" />
+27-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+28
+29    <uses-permission android:name="com.moodsense.ai.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+29-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+29-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+30    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+31    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+32    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+33
+34    <application
+34-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:15:5-37:19
+35        android:name="com.moodsense.ai.MoodSenseApp"
+35-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:16:9-37
+36        android:allowBackup="true"
+36-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:17:9-35
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.12.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a1dc957f70a0d741b068666e1206879\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+38        android:dataExtractionRules="@xml/data_extraction_rules"
+38-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:18:9-65
+39        android:debuggable="true"
+40        android:extractNativeLibs="false"
+41        android:fullBackupContent="@xml/backup_rules"
+41-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:19:9-54
+42        android:icon="@mipmap/ic_launcher"
+42-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:20:9-43
+43        android:label="@string/app_name"
+43-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:21:9-41
+44        android:roundIcon="@mipmap/ic_launcher_round"
+44-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:22:9-54
+45        android:supportsRtl="true"
+45-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:23:9-35
+46        android:testOnly="true"
+47        android:theme="@style/Theme.MoodSenseAI" >
+47-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:24:9-49
+48        <activity
+48-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:27:9-35:20
+49            android:name="com.moodsense.ai.MainActivity"
+49-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:28:13-41
+50            android:exported="true"
+50-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:29:13-36
+51            android:theme="@style/Theme.MoodSenseAI.SplashScreen" >
+51-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:30:13-66
+52            <intent-filter>
+52-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:31:13-34:29
+53                <action android:name="android.intent.action.MAIN" />
+53-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:32:17-69
+53-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:32:25-66
+54
+55                <category android:name="android.intent.category.LAUNCHER" />
+55-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:33:17-77
+55-->C:\Users\12ELEVEN\AndroidStudioProjects\MoodSenseAI\app\src\main\AndroidManifest.xml:33:27-74
+56            </intent-filter>
+57        </activity>
+58
+59        <service
+59-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:24:9-33:19
+60            android:name="androidx.camera.core.impl.MetadataHolderService"
+60-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:25:13-75
+61            android:enabled="false"
+61-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:26:13-36
+62            android:exported="false" >
+62-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:30:13-32:89
+64                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+64-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:31:17-103
+65                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+65-->[androidx.camera:camera-camera2:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7b2d30099a745f49ba76f7ae7a0c7797\transformed\camera-camera2-1.3.1\AndroidManifest.xml:32:17-86
+66        </service>
+67        <service
+67-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:9:9-15:19
+68            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+68-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:10:13-91
+69            android:directBootAware="true"
+69-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:17:13-43
+70            android:exported="false" >
+70-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:11:13-37
+71            <meta-data
+71-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:12:13-14:85
+72                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+72-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:13:17-114
+73                android:value="com.google.firebase.components.ComponentRegistrar" />
+73-->[com.google.android.gms:play-services-mlkit-face-detection:17.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\307526ffa53713bc90b807a583728009\transformed\play-services-mlkit-face-detection-17.0.1\AndroidManifest.xml:14:17-82
+74            <meta-data
+74-->[com.google.mlkit:vision-common:17.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a9a24aecb62cf9eebd868beda8a88b5\transformed\vision-common-17.1.0\AndroidManifest.xml:12:13-14:85
+75                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+75-->[com.google.mlkit:vision-common:17.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a9a24aecb62cf9eebd868beda8a88b5\transformed\vision-common-17.1.0\AndroidManifest.xml:13:17-124
+76                android:value="com.google.firebase.components.ComponentRegistrar" />
+76-->[com.google.mlkit:vision-common:17.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\5a9a24aecb62cf9eebd868beda8a88b5\transformed\vision-common-17.1.0\AndroidManifest.xml:14:17-82
+77            <meta-data
+77-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:20:13-22:85
+78                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+78-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:21:17-120
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:22:17-82
+80        </service>
+81
+82        <provider
+82-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:9:9-13:38
+83            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+83-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:10:13-78
+84            android:authorities="com.moodsense.ai.mlkitinitprovider"
+84-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:11:13-69
+85            android:exported="false"
+85-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:12:13-37
+86            android:initOrder="99" />
+86-->[com.google.mlkit:common:18.1.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b4d1932ea1f9d6c0a770de87e33cc6d8\transformed\common-18.1.0\AndroidManifest.xml:13:13-35
+87
+88        <activity
+88-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a67db59e9d9c0304230578641f9dee2c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+89            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+89-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a67db59e9d9c0304230578641f9dee2c\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+90            android:exported="false"
+90-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a67db59e9d9c0304230578641f9dee2c\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+91-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a67db59e9d9c0304230578641f9dee2c\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+92        <activity
+92-->[androidx.compose.ui:ui-tooling-android:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a1e24f23cbbf8bfc7a2d7722d9bccfe0\transformed\ui-tooling-release\AndroidManifest.xml:23:9-25:39
+93            android:name="androidx.compose.ui.tooling.PreviewActivity"
+93-->[androidx.compose.ui:ui-tooling-android:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a1e24f23cbbf8bfc7a2d7722d9bccfe0\transformed\ui-tooling-release\AndroidManifest.xml:24:13-71
+94            android:exported="true" />
+94-->[androidx.compose.ui:ui-tooling-android:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\a1e24f23cbbf8bfc7a2d7722d9bccfe0\transformed\ui-tooling-release\AndroidManifest.xml:25:13-36
+95        <activity
+95-->[androidx.compose.ui:ui-test-manifest:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\77e3da2b540300b43905005e8520e748\transformed\ui-test-manifest-1.6.0-alpha06\AndroidManifest.xml:23:9-25:39
+96            android:name="androidx.activity.ComponentActivity"
+96-->[androidx.compose.ui:ui-test-manifest:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\77e3da2b540300b43905005e8520e748\transformed\ui-test-manifest-1.6.0-alpha06\AndroidManifest.xml:24:13-63
+97            android:exported="true" />
+97-->[androidx.compose.ui:ui-test-manifest:1.6.0-alpha06] C:\Users\12ELEVEN\.gradle\caches\transforms-4\77e3da2b540300b43905005e8520e748\transformed\ui-test-manifest-1.6.0-alpha06\AndroidManifest.xml:25:13-36
+98
+99        <provider
+99-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+100            android:name="androidx.startup.InitializationProvider"
+100-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+101            android:authorities="com.moodsense.ai.androidx-startup"
+101-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+102            android:exported="false" >
+102-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+103            <meta-data
+103-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+104                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+104-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+105                android:value="androidx.startup" />
+105-->[androidx.emoji2:emoji2:1.3.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\b356886f77f7d72148cd83f22a08b5c3\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+106            <meta-data
+106-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\098b5e3fa5d53e82ceca9942de0c7278\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+107                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+107-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\098b5e3fa5d53e82ceca9942de0c7278\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+108                android:value="androidx.startup" />
+108-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\098b5e3fa5d53e82ceca9942de0c7278\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+109            <meta-data
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+110                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+111                android:value="androidx.startup" />
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+112        </provider>
+113
+114        <service
+114-->[androidx.room:room-runtime:2.6.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\1269b0f02706d66a428f978a88ebccaa\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+115            android:name="androidx.room.MultiInstanceInvalidationService"
+115-->[androidx.room:room-runtime:2.6.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\1269b0f02706d66a428f978a88ebccaa\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+116            android:directBootAware="true"
+116-->[androidx.room:room-runtime:2.6.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\1269b0f02706d66a428f978a88ebccaa\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+117            android:exported="false" />
+117-->[androidx.room:room-runtime:2.6.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\1269b0f02706d66a428f978a88ebccaa\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+118
+119        <meta-data
+119-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\8fe771bcf4687a0bef8b52ce33df0eac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+120            android:name="com.google.android.gms.version"
+120-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\8fe771bcf4687a0bef8b52ce33df0eac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+121            android:value="@integer/google_play_services_version" />
+121-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\12ELEVEN\.gradle\caches\transforms-4\8fe771bcf4687a0bef8b52ce33df0eac\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+122
+123        <service
+123-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:29:9-35:19
+124            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+124-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:30:13-103
+125            android:exported="false" >
+125-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:31:13-37
+126            <meta-data
+126-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:32:13-34:39
+127                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+127-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:33:17-94
+128                android:value="cct" />
+128-->[com.google.android.datatransport:transport-backend-cct:2.3.3] C:\Users\12ELEVEN\.gradle\caches\transforms-4\7364da6b3c784bad162bea0d6b6cf29f\transformed\transport-backend-cct-2.3.3\AndroidManifest.xml:34:17-36
+129        </service>
+130        <service
+130-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:26:9-30:19
+131            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+131-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:27:13-117
+132            android:exported="false"
+132-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:28:13-37
+133            android:permission="android.permission.BIND_JOB_SERVICE" >
+133-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:29:13-69
+134        </service>
+135
+136        <receiver
+136-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:32:9-34:40
+137            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+137-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:33:13-132
+138            android:exported="false" />
+138-->[com.google.android.datatransport:transport-runtime:2.2.6] C:\Users\12ELEVEN\.gradle\caches\transforms-4\40df1b55ad54ccb7ade413721846496c\transformed\transport-runtime-2.2.6\AndroidManifest.xml:34:13-37
+139        <receiver
+139-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+140            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+140-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+141            android:directBootAware="false"
+141-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+142            android:enabled="true"
+142-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+143            android:exported="true"
+143-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+144            android:permission="android.permission.DUMP" >
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+145            <intent-filter>
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+146                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+147            </intent-filter>
+148            <intent-filter>
+148-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+149                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+149-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+150            </intent-filter>
+151            <intent-filter>
+151-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+152                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+152-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+153            </intent-filter>
+154            <intent-filter>
+154-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+155                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+155-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\12ELEVEN\.gradle\caches\transforms-4\2a69c726799a4f6f680bdb7aaeb79c27\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+156            </intent-filter>
+157        </receiver>
+158    </application>
+159
+160</manifest>

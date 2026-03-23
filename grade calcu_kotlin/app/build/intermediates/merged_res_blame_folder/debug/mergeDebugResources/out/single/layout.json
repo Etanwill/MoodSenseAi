@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/item_student.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/item_student.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/item_grade_row.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/item_grade_row.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/item_subject_row.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/item_subject_row.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/activity_report_card.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/activity_report_card.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/activity_demo.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/activity_demo.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/activity_main.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.gradecalculator.app-mergeDebugResources-31:/layout/activity_add_student.xml",
+        "source": "com.gradecalculator.app-main-34:/layout/activity_add_student.xml"
+    }
+]
