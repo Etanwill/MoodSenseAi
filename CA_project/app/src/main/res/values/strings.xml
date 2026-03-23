@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MoodSense AI</string>
+    <string name="splash_tagline">Understand your emotions. Discover yourself.</string>
+    <string name="permission_camera_rationale">Camera access is needed to detect your facial emotions in real time using ML Kit.</string>
+    <string name="permission_mic_rationale">Microphone access is needed to classify ambient sounds in your environment.</string>
+</resources>

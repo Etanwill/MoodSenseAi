@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#0D0D1A</color>
+    <string name="app_name">MoodSense AI</string>
+    <string name="permission_camera_rationale">Camera access is needed to detect your facial emotions in real time using ML Kit.</string>
+    <string name="permission_mic_rationale">Microphone access is needed to classify ambient sounds in your environment.</string>
+    <string name="splash_tagline">Understand your emotions. Discover yourself.</string>
+    <style name="Theme.MoodSenseAI" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Theme.MoodSenseAI.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#0D0D1A</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_icon</item>
+        <item name="postSplashScreenTheme">@style/Theme.MoodSenseAI</item>
+    </style>
+</resources>

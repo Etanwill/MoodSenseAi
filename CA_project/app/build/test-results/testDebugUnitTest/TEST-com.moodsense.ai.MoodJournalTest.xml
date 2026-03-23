@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.moodsense.ai.MoodJournalTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-02-27T16:47:05" hostname="DESKTOP-S2UB162" time="0.079">
+  <properties/>
+  <testcase name="journal entry can have no tags" classname="com.moodsense.ai.MoodJournalTest" time="0.017"/>
+  <testcase name="mood score of 10 is valid maximum" classname="com.moodsense.ai.MoodJournalTest" time="0.002"/>
+  <testcase name="all mood tags have non-empty labels" classname="com.moodsense.ai.MoodJournalTest" time="0.003"/>
+  <testcase name="non-blank note should be saved" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood score of 1 is valid minimum" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="detected emotion can be null in journal entry" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood score of 11 is invalid" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="single character note is valid" classname="com.moodsense.ai.MoodJournalTest" time="0.002"/>
+  <testcase name="mood tag names can be parsed back to enum" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="detected emotion is included when available" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood tags include common emotional states" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood score of 5 is valid mid-range" classname="com.moodsense.ai.MoodJournalTest" time="0.002"/>
+  <testcase name="very long note is still valid" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood score of 0 is invalid" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="journal entry can have multiple tags" classname="com.moodsense.ai.MoodJournalTest" time="0.029"/>
+  <testcase name="there are at least 10 mood tags available" classname="com.moodsense.ai.MoodJournalTest" time="0.002"/>
+  <testcase name="blank note should not be saved" classname="com.moodsense.ai.MoodJournalTest" time="0.001"/>
+  <testcase name="mood tags can be converted to name list" classname="com.moodsense.ai.MoodJournalTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.moodsense.ai.SongRecognizerTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2026-02-27T16:47:06" hostname="DESKTOP-S2UB162" time="0.043">
+  <properties/>
+  <testcase name="default API key placeholder is detected as unconfigured" classname="com.moodsense.ai.SongRecognizerTest" time="0.002"/>
+  <testcase name="found result youtube id can be null" classname="com.moodsense.ai.SongRecognizerTest" time="0.003"/>
+  <testcase name="result is in loading state when Recording" classname="com.moodsense.ai.SongRecognizerTest" time="0.004"/>
+  <testcase name="not found result stores message correctly" classname="com.moodsense.ai.SongRecognizerTest" time="0.004"/>
+  <testcase name="recording state is set when listening starts" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="low confidence match score is below 50" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="found result spotify id can be null" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="result is in loading state when Processing" classname="com.moodsense.ai.SongRecognizerTest" time="0.002"/>
+  <testcase name="high confidence match score is above 80" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="found result stores title correctly" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="found result stores match score correctly" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="found result stores artist correctly" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="result is not in loading state when Found" classname="com.moodsense.ai.SongRecognizerTest" time="0.002"/>
+  <testcase name="idle state is initial state" classname="com.moodsense.ai.SongRecognizerTest" time="0.002"/>
+  <testcase name="real API key is detected as configured" classname="com.moodsense.ai.SongRecognizerTest" time="0.001"/>
+  <testcase name="processing state is set after recording ends" classname="com.moodsense.ai.SongRecognizerTest" time="0.004"/>
+  <testcase name="error result stores message correctly" classname="com.moodsense.ai.SongRecognizerTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

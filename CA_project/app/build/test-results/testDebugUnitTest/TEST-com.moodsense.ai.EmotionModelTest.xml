@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.moodsense.ai.EmotionModelTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-02-27T16:47:05" hostname="DESKTOP-S2UB162" time="0.078">
+  <properties/>
+  <testcase name="EmotionResult stores emotion correctly" classname="com.moodsense.ai.EmotionModelTest" time="0.011"/>
+  <testcase name="valid emotion with high confidence is saved to history" classname="com.moodsense.ai.EmotionModelTest" time="0.002"/>
+  <testcase name="each emotion has a non-empty display name" classname="com.moodsense.ai.EmotionModelTest" time="0.043"/>
+  <testcase name="high confidence detection is above threshold" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="each emotion has an emoji" classname="com.moodsense.ai.EmotionModelTest" time="0.002"/>
+  <testcase name="unknown emotion is not saved to history" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="EmotionResult stores confidence correctly" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="happy emotion has correct display name" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="low confidence detection is below threshold" classname="com.moodsense.ai.EmotionModelTest" time="0.002"/>
+  <testcase name="EmotionResult timestamp defaults to current time" classname="com.moodsense.ai.EmotionModelTest" time="0.002"/>
+  <testcase name="neutral emotion has correct emoji" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="confidence value of 0_0 is valid" classname="com.moodsense.ai.EmotionModelTest" time="0.001"/>
+  <testcase name="confidence value of 1_0 is valid" classname="com.moodsense.ai.EmotionModelTest" time="0.002"/>
+  <testcase name="all 8 emotions are defined" classname="com.moodsense.ai.EmotionModelTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
