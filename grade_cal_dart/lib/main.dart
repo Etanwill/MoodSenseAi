@@ -1,6 +1,16 @@
+import 'dart:convert';
+import 'dart:html' as html;
+// dart:io not used on web
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:excel/excel.dart' as xl;
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
+// path_provider not used on web
+// share_plus not used on web
 
 // ============================================================
 //  ASSIGNMENT REQUIREMENTS — WHERE EACH ONE LIVES:
@@ -149,6 +159,491 @@ class Student {
   }
 }
 
+
+
+// ── EXPORT SERVICE ────────────────────────────────────────────
+
+class ExportService {
+  // ── JSON EXPORT ─────────────────────────────────
+  static Future<void> exportJSON(
+      BuildContext context, List<Student> students) async {
+    if (students.isEmpty) {
+      _snack(context, 'No students to export');
+      return;
+    }
+
+    final avg = students.map((s) => s.average).fold(0.0, (a, b) => a + b) /
+        students.length;
+
+    final payload = {
+      'generated': DateTime.now().toIso8601String(),
+      'summary': {
+        'totalStudents': students.length,
+        'classAverage': double.parse(avg.toStringAsFixed(2)),
+        'passing': students.where((s) => s.average >= 50).length,
+        'failing': students.where((s) => s.average < 50).length,
+        'gradeDistribution': {
+          for (final g in ['A', 'B', 'C', 'D', 'E', 'F'])
+            g: students.where((s) => s.grade == g).length,
+        },
+      },
+      'students': students
+          .asMap()
+          .entries
+          .map((e) => {
+                'rank': e.key + 1,
+                'name': e.value.name,
+                'scores': {
+                  'mathematics': e.value.mathScore,
+                  'english': e.value.englishScore,
+                  'science': e.value.scienceScore,
+                  'ict': e.value.ictScore,
+                  'french': e.value.frenchScore,
+                },
+                'results': {
+                  'average': double.parse(e.value.average.toStringAsFixed(2)),
+                  'grade': e.value.grade,
+                  'remark': e.value.remark,
+                  'totalSubjects': e.value.totalSubjects,
+                  'totalMarks': e.value.totalMarks,
+                  'highestScore': e.value.highestScore,
+                  'bestSubject': e.value.bestSubject,
+                },
+              })
+          .toList(),
+    };
+
+    final jsonStr = const JsonEncoder.withIndent('  ').convert(payload);
+    await _saveAndShare(
+        context, jsonStr.codeUnits, 'Grade_Report.json', 'application/json');
+  }
+
+  // ── EXCEL EXPORT ────────────────────────────────
+  static Future<void> exportExcel(
+      BuildContext context, List<Student> students) async {
+    if (students.isEmpty) {
+      _snack(context, 'No students to export');
+      return;
+    }
+
+    final excel = xl.Excel.createExcel();
+    final sheet = excel['Grade Report'];
+    excel.delete('Sheet1');
+
+    void cell(int row, int col, dynamic value, {bool bold = false}) {
+      final c = sheet.cell(
+          xl.CellIndex.indexByColumnRow(columnIndex: col, rowIndex: row));
+      c.value = xl.TextCellValue(value.toString());
+      if (bold) {
+        c.cellStyle = xl.CellStyle(bold: true);
+      }
+    }
+
+    // Header row
+    final headers = [
+      '#', 'Name', 'Math', 'English', 'Science', 'ICT', 'French',
+      'Average (%)', 'Grade', 'Remark', 'Subjects', 'Total Marks', 'Best Subject'
+    ];
+    for (int i = 0; i < headers.length; i++) {
+      cell(0, i, headers[i], bold: true);
+    }
+
+    // Student data rows
+    for (int i = 0; i < students.length; i++) {
+      final s = students[i];
+      final row = [
+        i + 1,
+        s.name,
+        s.mathScore ?? '—',
+        s.englishScore ?? '—',
+        s.scienceScore ?? '—',
+        s.ictScore ?? '—',
+        s.frenchScore ?? '—',
+        s.average.toStringAsFixed(2),
+        s.grade,
+        s.remark,
+        s.totalSubjects,
+        s.totalMarks,
+        s.bestSubject,
+      ];
+      for (int j = 0; j < row.length; j++) {
+        cell(i + 1, j, row[j]);
+      }
+    }
+
+    // Class summary section
+    final avg = students.map((s) => s.average).fold(0.0, (a, b) => a + b) /
+        students.length;
+    final sr = students.length + 2;
+    cell(sr, 0, 'CLASS SUMMARY', bold: true);
+    cell(sr + 1, 0, 'Total Students');
+    cell(sr + 1, 2, students.length);
+    cell(sr + 2, 0, 'Class Average');
+    cell(sr + 2, 2, '${avg.toStringAsFixed(2)}%');
+    cell(sr + 3, 0, 'Passing (>=50%)');
+    cell(sr + 3, 2, students.where((s) => s.average >= 50).length);
+    cell(sr + 4, 0, 'Failing (<50%)');
+    cell(sr + 4, 2, students.where((s) => s.average < 50).length);
+
+    // Grade distribution
+    cell(sr + 6, 0, 'GRADE DISTRIBUTION', bold: true);
+    final grades = ['A', 'B', 'C', 'D', 'E', 'F'];
+    for (int i = 0; i < grades.length; i++) {
+      cell(sr + 7 + i, 0, 'Grade ${grades[i]}');
+      cell(sr + 7 + i, 2, students.where((s) => s.grade == grades[i]).length);
+    }
+
+    final bytes = excel.encode();
+    if (bytes == null) return;
+    await _saveAndShare(
+        context,
+        bytes,
+        'Grade_Report.xlsx',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+  }
+
+  // ── PDF EXPORT ──────────────────────────────────
+  static Future<void> exportPDF(
+      BuildContext context, List<Student> students) async {
+    if (students.isEmpty) {
+      _snack(context, 'No students to export');
+      return;
+    }
+
+    final doc = pw.Document();
+    final avg = students.map((s) => s.average).fold(0.0, (a, b) => a + b) /
+        students.length;
+    final passing = students.where((s) => s.average >= 50).length;
+    final failing  = students.where((s) => s.average < 50).length;
+    final now = DateTime.now();
+
+    final gradeColors = {
+      'A': PdfColors.green800,
+      'B': PdfColors.green600,
+      'C': PdfColors.amber800,
+      'D': PdfColors.orange800,
+      'E': PdfColors.red700,
+      'F': PdfColors.red900,
+    };
+
+    final gradeScale = [
+      ['A', '90-100', 'Excellent',  PdfColors.green800],
+      ['B', '80-89',  'Very Good',  PdfColors.green600],
+      ['C', '70-79',  'Good',       PdfColors.amber800],
+      ['D', '60-69',  'Pass',       PdfColors.orange800],
+      ['E', '50-59',  'Weak Pass',  PdfColors.red700],
+      ['F', '0-49',   'Fail',       PdfColors.red900],
+    ];
+
+    doc.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4.landscape,
+        margin: const pw.EdgeInsets.all(28),
+        header: (ctx) => pw.Container(
+          color: const PdfColor.fromInt(0xFF1565C0),
+          padding: const pw.EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          child: pw.Row(
+            mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+            children: [
+              pw.Text(
+                'Grade Calculator — Class Report',
+                style: pw.TextStyle(
+                  color: PdfColors.white,
+                  fontWeight: pw.FontWeight.bold,
+                  fontSize: 14,
+                ),
+              ),
+              pw.Text(
+                'Generated: ${now.day}/${now.month}/${now.year}',
+                style: const pw.TextStyle(color: PdfColors.grey300, fontSize: 9),
+              ),
+            ],
+          ),
+        ),
+        footer: (ctx) => pw.Container(
+          alignment: pw.Alignment.centerRight,
+          padding: const pw.EdgeInsets.only(top: 8),
+          child: pw.Text(
+            'Page ${ctx.pageNumber} of ${ctx.pagesCount}',
+            style: const pw.TextStyle(color: PdfColors.grey600, fontSize: 8),
+          ),
+        ),
+        build: (ctx) => [
+          pw.SizedBox(height: 14),
+
+          // ── Summary Stats Row ──
+          pw.Container(
+            padding: const pw.EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+            decoration: pw.BoxDecoration(
+              color: const PdfColor.fromInt(0xFFEEF2FF),
+              borderRadius: pw.BorderRadius.circular(6),
+              border: pw.Border.all(color: const PdfColor.fromInt(0xFFBBCCEE)),
+            ),
+            child: pw.Row(
+              mainAxisAlignment: pw.MainAxisAlignment.spaceAround,
+              children: [
+                _pdfStatBox('Total Students', '${students.length}',       PdfColors.indigo800),
+                _pdfDivider(),
+                _pdfStatBox('Class Average',  '${avg.toStringAsFixed(1)}%', PdfColors.blue800),
+                _pdfDivider(),
+                _pdfStatBox('Passing',        '$passing',                  PdfColors.green800),
+                _pdfDivider(),
+                _pdfStatBox('Failing',        '$failing',                  PdfColors.red800),
+              ],
+            ),
+          ),
+
+          pw.SizedBox(height: 18),
+          pw.Text('Student Results',
+              style: pw.TextStyle(fontWeight: pw.FontWeight.bold, fontSize: 12,
+                  color: const PdfColor.fromInt(0xFF1565C0))),
+          pw.SizedBox(height: 8),
+
+          // ── Main Table ──
+          pw.Table(
+            border: pw.TableBorder.all(color: PdfColors.grey300, width: 0.5),
+            columnWidths: {
+              0: const pw.FixedColumnWidth(22),
+              1: const pw.FlexColumnWidth(2.8),
+              2: const pw.FixedColumnWidth(36),
+              3: const pw.FixedColumnWidth(44),
+              4: const pw.FixedColumnWidth(40),
+              5: const pw.FixedColumnWidth(30),
+              6: const pw.FixedColumnWidth(36),
+              7: const pw.FixedColumnWidth(50),
+              8: const pw.FixedColumnWidth(34),
+              9: const pw.FlexColumnWidth(2.0),
+            },
+            children: [
+              // Table header row
+              pw.TableRow(
+                decoration: const pw.BoxDecoration(
+                    color: PdfColor.fromInt(0xFF1565C0)),
+                children: [
+                  '#', 'Name', 'Math', 'English', 'Science',
+                  'ICT', 'French', 'Average', 'Grade', 'Remark',
+                ].map((h) => pw.Padding(
+                      padding: const pw.EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 7),
+                      child: pw.Text(h,
+                          style: pw.TextStyle(
+                            color: PdfColors.white,
+                            fontWeight: pw.FontWeight.bold,
+                            fontSize: 8,
+                          )),
+                    )).toList(),
+              ),
+              // Data rows
+              ...students.asMap().entries.map((e) {
+                final i = e.key;
+                final s = e.value;
+                final rowBg = i.isEven
+                    ? PdfColors.white
+                    : const PdfColor.fromInt(0xFFF5F7FF);
+                final gc = gradeColors[s.grade] ?? PdfColors.grey600;
+
+                final cells = [
+                  '${i + 1}',
+                  s.name,
+                  s.mathScore?.toString() ?? '-',
+                  s.englishScore?.toString() ?? '-',
+                  s.scienceScore?.toString() ?? '-',
+                  s.ictScore?.toString() ?? '-',
+                  s.frenchScore?.toString() ?? '-',
+                  '${s.average.toStringAsFixed(1)}%',
+                  s.grade,
+                  s.remark,
+                ];
+
+                return pw.TableRow(
+                  decoration: pw.BoxDecoration(color: rowBg),
+                  children: cells.asMap().entries.map((ce) {
+                    final isGrade   = ce.key == 8;
+                    final isAverage = ce.key == 7;
+                    return pw.Padding(
+                      padding: const pw.EdgeInsets.symmetric(
+                          horizontal: 5, vertical: 6),
+                      child: isGrade
+                          ? pw.Container(
+                              alignment: pw.Alignment.center,
+                              decoration: pw.BoxDecoration(
+                                color: gc,
+                                borderRadius: pw.BorderRadius.circular(10),
+                              ),
+                              padding: const pw.EdgeInsets.symmetric(
+                                  horizontal: 4, vertical: 2),
+                              child: pw.Text(
+                                ce.value,
+                                style: pw.TextStyle(
+                                  color: PdfColors.white,
+                                  fontWeight: pw.FontWeight.bold,
+                                  fontSize: 8,
+                                ),
+                              ),
+                            )
+                          : pw.Text(
+                              ce.value,
+                              style: pw.TextStyle(
+                                fontSize: 8,
+                                fontWeight: isAverage
+                                    ? pw.FontWeight.bold
+                                    : pw.FontWeight.normal,
+                                color: isAverage ? gc : PdfColors.black,
+                              ),
+                            ),
+                    );
+                  }).toList(),
+                );
+              }),
+            ],
+          ),
+
+          pw.SizedBox(height: 22),
+          pw.Text('Grade Scale Reference',
+              style: pw.TextStyle(
+                fontWeight: pw.FontWeight.bold,
+                fontSize: 11,
+                color: const PdfColor.fromInt(0xFF1565C0),
+              )),
+          pw.SizedBox(height: 8),
+
+          // ── Grade Scale Row ──
+          pw.Row(
+            children: gradeScale.map((item) {
+              final g     = item[0] as String;
+              final range = item[1] as String;
+              final name  = item[2] as String;
+              final color = item[3] as PdfColor;
+              return pw.Expanded(
+                child: pw.Container(
+                  margin: const pw.EdgeInsets.only(right: 5),
+                  padding: const pw.EdgeInsets.all(7),
+                  decoration: pw.BoxDecoration(
+                    border: pw.Border.all(color: color, width: 1.2),
+                    borderRadius: pw.BorderRadius.circular(5),
+                  ),
+                  child: pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      pw.Text(g,
+                          style: pw.TextStyle(
+                            color: color,
+                            fontWeight: pw.FontWeight.bold,
+                            fontSize: 12,
+                          )),
+                      pw.SizedBox(height: 2),
+                      pw.Text(range,
+                          style: pw.TextStyle(
+                              fontSize: 7, color: PdfColors.grey600)),
+                      pw.Text(name,
+                          style: pw.TextStyle(
+                              fontSize: 7.5,
+                              fontWeight: pw.FontWeight.bold)),
+                    ],
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+
+          pw.SizedBox(height: 18),
+
+          // ── Grade Distribution Summary ──
+          pw.Text('Grade Distribution',
+              style: pw.TextStyle(
+                fontWeight: pw.FontWeight.bold,
+                fontSize: 11,
+                color: const PdfColor.fromInt(0xFF1565C0),
+              )),
+          pw.SizedBox(height: 8),
+          pw.Row(
+            children: ['A', 'B', 'C', 'D', 'E', 'F'].map((g) {
+              final count = students.where((s) => s.grade == g).length;
+              final color = gradeColors[g] ?? PdfColors.grey;
+              return pw.Expanded(
+                child: pw.Container(
+                  margin: const pw.EdgeInsets.only(right: 5),
+                  padding: const pw.EdgeInsets.symmetric(
+                      vertical: 10, horizontal: 6),
+                  decoration: pw.BoxDecoration(
+                    color: color,
+                    borderRadius: pw.BorderRadius.circular(6),
+                  ),
+                  child: pw.Column(
+                    children: [
+                      pw.Text(g,
+                          style: pw.TextStyle(
+                            color: PdfColors.white,
+                            fontWeight: pw.FontWeight.bold,
+                            fontSize: 14,
+                          )),
+                      pw.Text('$count student${count == 1 ? '' : 's'}',
+                          style: const pw.TextStyle(
+                              color: PdfColors.grey300, fontSize: 8)),
+                    ],
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+        ],
+      ),
+    );
+
+    await Printing.layoutPdf(
+      onLayout: (fmt) async => doc.save(),
+      name: 'Grade_Report',
+    );
+  }
+
+  // ── HELPERS ─────────────────────────────────────
+  static pw.Widget _pdfStatBox(String label, String value, PdfColor color) =>
+      pw.Column(
+        crossAxisAlignment: pw.CrossAxisAlignment.center,
+        children: [
+          pw.Text(value,
+              style: pw.TextStyle(
+                fontWeight: pw.FontWeight.bold,
+                fontSize: 16,
+                color: color,
+              )),
+          pw.SizedBox(height: 2),
+          pw.Text(label,
+              style:
+                  const pw.TextStyle(color: PdfColors.grey700, fontSize: 8)),
+        ],
+      );
+
+  static pw.Widget _pdfDivider() => pw.Container(
+        height: 30,
+        width: 0.5,
+        color: PdfColors.grey400,
+        margin: const pw.EdgeInsets.symmetric(horizontal: 8),
+      );
+
+  static Future<void> _saveAndShare(BuildContext context, List<int> bytes,
+      String filename, String mimeType) async {
+    try {
+      // Web: trigger browser download via anchor element
+      final blob = html.Blob([bytes], mimeType);
+      final url  = html.Url.createObjectUrlFromBlob(blob);
+      final a    = html.AnchorElement(href: url)
+        ..setAttribute('download', filename)
+        ..click();
+      html.Url.revokeObjectUrl(url);
+      _snack(context, 'Downloaded: $filename');
+    } catch (e) {
+      _snack(context, 'Export failed: $e');
+    }
+  }
+
+  static void _snack(BuildContext context, String msg) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(msg), behavior: SnackBarBehavior.floating),
+    );
+  }
+}
+
 // ── APP ENTRY POINT ──────────────────────────────────────────
 
 void main() {
@@ -257,11 +752,29 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () => Navigator.push(context,
                 MaterialPageRoute(builder: (_) => DemoScreen(students: _students))),
           ),
-          if (_students.isNotEmpty)
+          if (_students.isNotEmpty) ...[
+            // ── EXPORT BUTTONS ──────────────────────────
+            IconButton(
+              icon: const Icon(Icons.table_chart, color: Colors.white),
+              tooltip: 'Export as Excel (.xlsx)',
+              onPressed: () => ExportService.exportExcel(context, _students),
+            ),
+            IconButton(
+              icon: const Icon(Icons.picture_as_pdf, color: Colors.white),
+              tooltip: 'Export as PDF',
+              onPressed: () => ExportService.exportPDF(context, _students),
+            ),
+            IconButton(
+              icon: const Icon(Icons.data_object, color: Colors.white),
+              tooltip: 'Export as JSON',
+              onPressed: () => ExportService.exportJSON(context, _students),
+            ),
+            // ────────────────────────────────────────────
             IconButton(
               icon: const Icon(Icons.delete_sweep, color: Colors.white),
               onPressed: () => _showClearDialog(context),
             ),
+          ],
         ],
       ),
       body: _students.isEmpty ? _buildEmpty() : _buildList(),
