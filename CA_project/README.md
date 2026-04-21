@@ -2,73 +2,9 @@
 
 > A complete, production-ready Android app that detects emotions, classifies sounds, tracks mood patterns, and recommends music — all powered by on-device AI.
 
----
 
-## 📦 Project Structure
 
-```
-MoodSenseAI/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/moodsense/ai/
-│   │   │   ├── MoodSenseApp.kt                  # Application class (Hilt)
-│   │   │   ├── MainActivity.kt                  # Entry point
-│   │   │   ├── ui/
-│   │   │   │   ├── theme/                       # Material 3 theme, colors, typography
-│   │   │   │   ├── navigation/Navigation.kt     # NavHost + all routes
-│   │   │   │   ├── components/Components.kt     # Reusable UI components
-│   │   │   │   └── screens/
-│   │   │   │       ├── SplashScreen.kt
-│   │   │   │       ├── OnboardingScreen.kt
-│   │   │   │       ├── HomeScreen.kt            # Dashboard
-│   │   │   │       ├── EmotionCameraScreen.kt   # ML Kit face detection
-│   │   │   │       ├── SoundMonitorScreen.kt    # TFLite YAMNet
-│   │   │   │       ├── JournalScreen.kt         # Mood journal + typing tracker
-│   │   │   │       ├── InsightsScreen.kt        # Charts & patterns
-│   │   │   │       └── MusicScreen.kt           # Spotify integration
-│   │   │   ├── data/
-│   │   │   │   ├── local/
-│   │   │   │   │   ├── MoodSenseDatabase.kt     # Room DB
-│   │   │   │   │   ├── entities/Entities.kt     # DB tables
-│   │   │   │   │   └── dao/Daos.kt              # DB queries
-│   │   │   │   └── repository/
-│   │   │   │       ├── Repositories.kt          # Data repositories
-│   │   │   │       └── SpotifyApiModels.kt      # Retrofit + Spotify DTOs
-│   │   │   ├── domain/model/Models.kt           # Domain models
-│   │   │   ├── ml/
-│   │   │   │   ├── FaceEmotionAnalyzer.kt       # ML Kit face analysis
-│   │   │   │   └── SoundClassifier.kt           # TFLite YAMNet
-│   │   │   ├── viewmodel/
-│   │   │   │   ├── HomeViewModel.kt
-│   │   │   │   └── ViewModels.kt                # All other ViewModels
-│   │   │   ├── di/AppModule.kt                  # Hilt DI module
-│   │   │   └── util/
-│   │   │       ├── TypingTracker.kt             # Keyboard dynamics
-│   │   │       └── InsightsAnalyzer.kt          # Pattern detection
-│   │   ├── assets/                              # Place yamnet.tflite here
-│   │   └── res/
-│   ├── build.gradle
-│   └── proguard-rules.pro
-├── build.gradle
-├── settings.gradle
-└── gradle.properties
-```
-
----
-
-## 🚀 Setup Instructions
-
-### Step 1: Open in Android Studio
-
-1. Download and extract the ZIP file
-2. Open **Android Studio** (Hedgehog or newer recommended)
-3. Select **"Open an Existing Project"**
-4. Navigate to the `MoodSenseAI/` folder and click **Open**
-5. Wait for Gradle sync to complete
-
----
-
-### Step 2: Add YAMNet TensorFlow Lite Model
+### Step : Add YAMNet TensorFlow Lite Model
 
 The sound classifier uses the YAMNet model. Download it and add it to the project:
 
